@@ -23,18 +23,18 @@ GRASS GIS metadata...
 
 Candidate GRASS commands for metadata production:
 
-- g.region - Region Boundaries
-- g.proj - CRS information
-- *.info - Basic metadata
-- *.out.color - Exports color table
-- t.rast.colors - Export temporal raster color table
-- r.describe - Range of category values
-- *.category - Category information
-- *.univar - Univariate statistics
-- t.*.univar - Temporal univariate Statistics
-- *.stats - General statistics
-- *.report - Report statistics
-- r.out.png - Export raster thumbnail
+- [x] g.region - Region Boundaries
+- [x] g.proj - CRS information
+- [x] *.info - Basic metadata
+- [x] *.out.color - Exports color table
+- [x] t.rast.colors - Export temporal raster color table
+- [ ] r.describe - Range of category values
+- [x] *.category - Category information
+- [x] *.univar - Univariate statistics
+- [x] t.*.univar - Temporal univariate Statistics
+- [x] *.stats - General statistics
+- [ ] *.report - Report statistics
+- [x] r.out.png - Export raster thumbnail
 
 Once a spec is agreed upon we can develop a GRASS module `*.out.stac` to generate a grassdata STAC.
 
@@ -51,25 +51,24 @@ The fields in the table below can be used in these parts of STAC documents:
 | Field Name           | Type                      | Description |
 | -------------------- | ------------------------- | ----------- |
 | grass:type           | string [grassdata, location, mapset, raster, vector, strds] | **REQUIRED**. The GRASS GIS object type |
-| grass:datatype       | string                    | The GRASS datatype (e.g. CELL, FCELL, DCELL, etc..) |
-| grass:description    | string                    | GRASS GIS Processing metadata  |
-| grass:comments       | string                    | GRASS r.info comments |
-| grass:creator        | string                    | GRASS r.info creator |
-| grass:ewres          | \[number]                 | The east west spatial resolution. |
-| grass:nsres          | \[number]                 | The north south spatial resolution. |
-| grass:cols           | \[number]                 | The number of columns in the raster. |
+| grass:datatype       | string                    | The GRASS datatype (e.g. CELL, FCELL, DCELL, etc..) (r.info datatype) |
+| grass:description    | string                    | GRASS GIS Processing metadata (r.info metadata) |
+| grass:comments       | string                    | (r.info comments) |
+| grass:creator        | string                    | (r.info creator) |
+| grass:ewres          | \[number]                 | The east west spatial resolution (r.info ewres) |
+| grass:nsres          | \[number]                 | The north south spatial resolution (r.info nsres) |
+| grass:cols           | \[number]                 | The number of columns in the raster (r.cols nsres) |
 | grass:location       | string                    | The name of the GRASS location (i.e., project) |
 | grass:mapset         | string                    | The name of the GRASS mapset (i.e., sub-project) |
-| grass:map            | string                    | GRASS r.info map |
-| grass:maptype        | string                    | GRASS r.info maptype |
-| grass:min            | \[number]                 | The min data value (GRASS r.info min)  |
-| grass:max            | \[number]                 | The max data value (GRASS r.info max) |
-| grass:ncats          | \[number]                 | The max data value (GRASS r.info max) |
-| grass:semantic_label | string                    | The semantic_label (GRASS r.info semantic_label) |
-| grass:source1        | string                    | The source1 value (GRASS r.info source1) |
-| grass:source2        | string                    | The source1 value (GRASS r.info source1) |
-| grass:color_table    | string                    | GRASS r.colors.out |
-| grass:color_table    | string                    | GRASS r.colors.out |
+| grass:map            | string                    | (r.info map) |
+| grass:maptype        | string                    | (r.info maptype) |
+| grass:min            | \[number]                 | The min data value (r.info min)  |
+| grass:max            | \[number]                 | The max data value (r.info max) |
+| grass:ncats          | \[number]                 | The max data value (r.info ncats) |
+| grass:semantic_label | string                    | The semantic_label (r.info semantic_label) |
+| grass:source1        | string                    | The source1 value (r.info source1) |
+| grass:source2        | string                    | The source1 value (r.info source1) |
+| grass:color_table    | string                    | *.colors.out  |
 
 ### Additional Field Information
 
