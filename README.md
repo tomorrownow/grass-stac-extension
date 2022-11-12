@@ -19,10 +19,28 @@ GRASS GIS metadata...
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
+## GRASS Metadata Commands
+
+Candidate GRASS commands for metadata production:
+
+- g.region
+- g.proj
+- *.info
+- *.out.color
+- t.rast.colors
+- *.category
+- *.univar
+- t.*.univar
+- *.report
+- r.out.png
+
+Once a spec is agreed upon we can develop a GRASS module `*.out.stac` which can generate the STAC with GRASS.
+
 ## Fields
 
 The fields in the table below can be used in these parts of STAC documents:
-- [ ] Catalogs
+
+- [x] Catalogs
 - [x] Collections
 - [x] Item Properties (incl. Summaries in Collections)
 - [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
@@ -30,24 +48,26 @@ The fields in the table below can be used in these parts of STAC documents:
 
 | Field Name           | Type                      | Description |
 | -------------------- | ------------------------- | ----------- |
-| grass:type           | string                    | **REQUIRED**. Describe the required field... |
-| grass:datatype       | string                    | Describe the required field... |
-| grass:description    | string                    | Describe the field... |
-| grass:comments       | string                    | Describe the field... |
-| grass:creator        | string                    | Describe the field... |
-| grass:ewres          | \[number]                 | Describe the field... |
-| grass:nsres          | \[number]                 | Describe the field... |
-| grass:cols           | \[number]                 | Describe the field... |
-| grass:location       | \[number]                 | Describe the field... |
-| grass:mapset         | \[number]                 | Describe the field... |
-| grass:map            | \[number]                 | Describe the field... |
-| grass:maptype        | \[number]                 | Describe the field... |
-| grass:min            | \[number]                 | Describe the field... |
-| grass:max            | \[number]                 | Describe the field... |
-| grass:ncats          | \[number]                 | Describe the field... |
-| grass:semantic_label | \[number]                 | Describe the field... |
-| grass:source1        | \[number]                 | Describe the field... |
-| grass:source2        | \[number]                 | Describe the field... |
+| grass:type           | string [grassdata, location, mapset, raster, vector, strds] | **REQUIRED**. The GRASS GIS object type |
+| grass:datatype       | string                    | The GRASS datatype (e.g. CELL, FCELL, DCELL, etc..) |
+| grass:description    | string                    | GRASS GIS Processing metadata  |
+| grass:comments       | string                    | GRASS r.info comments |
+| grass:creator        | string                    | GRASS r.info creator |
+| grass:ewres          | \[number]                 | The east west spatial resolution. |
+| grass:nsres          | \[number]                 | The north south spatial resolution. |
+| grass:cols           | \[number]                 | The number of columns in the raster. |
+| grass:location       | string                    | The name of the GRASS location (i.e., project) |
+| grass:mapset         | string                    | The name of the GRASS mapset (i.e., sub-project) |
+| grass:map            | string                    | GRASS r.info map |
+| grass:maptype        | string                    | GRASS r.info maptype |
+| grass:min            | \[number]                 | The min data value (GRASS r.info min)  |
+| grass:max            | \[number]                 | The max data value (GRASS r.info max) |
+| grass:ncats          | \[number]                 | The max data value (GRASS r.info max) |
+| grass:semantic_label | string                    | The semantic_label (GRASS r.info semantic_label) |
+| grass:source1        | string                    | The source1 value (GRASS r.info source1) |
+| grass:source2        | string                    | The source1 value (GRASS r.info source1) |
+| grass:color_table    | string                    | GRASS r.colors.out |
+| grass:color_table    | string                    | GRASS r.colors.out |
 
 ### Additional Field Information
 
@@ -55,7 +75,7 @@ The fields in the table below can be used in these parts of STAC documents:
 
 This is a much more detailed description of the field `template:new_field`...
 
-### XYZ Object
+<!-- ### XYZ Object
 
 This is the introduction for the purpose and the content of the XYZ Object...
 
@@ -72,7 +92,8 @@ The following types should be used as applicable `rel` types in the
 
 | Type                | Description |
 | ------------------- | ----------- |
-| fancy-rel-type      | This link points to a fancy resource. |
+| fancy-rel-type      | This link points to a fancy resource. | -->
+
 
 ## Contributing
 
