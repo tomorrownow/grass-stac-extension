@@ -23,18 +23,20 @@ GRASS GIS metadata...
 
 Candidate GRASS commands for metadata production:
 
-- g.region
-- g.proj
-- *.info
-- *.out.color
-- t.rast.colors
-- *.category
-- *.univar
-- t.*.univar
-- *.report
-- r.out.png
+- g.region - Region Boundaries
+- g.proj - CRS information
+- *.info - Basic metadata
+- *.out.color - Exports color table
+- t.rast.colors - Export temporal raster color table
+- r.describe - Range of category values
+- *.category - Category information
+- *.univar - Univariate statistics
+- t.*.univar - Temporal univariate Statistics
+- *.stats - General statistics
+- *.report - Report statistics
+- r.out.png - Export raster thumbnail
 
-Once a spec is agreed upon we can develop a GRASS module `*.out.stac` which can generate the STAC with GRASS.
+Once a spec is agreed upon we can develop a GRASS module `*.out.stac` to generate a grassdata STAC.
 
 ## Fields
 
